@@ -1,6 +1,6 @@
 package lotto
 
-import lotto.domain.WinningGrade
+import lotto.domain.MatchNumbers
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -28,7 +28,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == WinningGrade.MATCH_SIX)
+        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_SIX)
     }
 
     @Test
@@ -38,7 +38,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == WinningGrade.MATCH_FIVE)
+        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_FIVE)
     }
 
     @Test
@@ -48,7 +48,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == WinningGrade.MATCH_FOUR)
+        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_FOUR)
     }
     @Test
     fun `정답과 비교해서 세 개가 다르다면 MATCH_THREE 를 반환한다`() {
@@ -57,7 +57,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == WinningGrade.MATCH_THREE)
+        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_THREE)
     }
     @Test
     fun `정답과 비교해서 세 개 초과해 다르다면 DIDNT_PRICE 를 반환한다`() {
@@ -66,7 +66,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == WinningGrade.DIDNT_PRICE)
+        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.DIDNT_PRICE)
     }
     // TODO: 추가 기능 구현에 따른 테스트 코드 작성
 }
