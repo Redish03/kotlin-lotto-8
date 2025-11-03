@@ -1,7 +1,6 @@
-package lotto
+package lotto.domain
 
-import lotto.domain.MatchNumbers
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
@@ -28,7 +27,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_SIX)
+        Assertions.assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_SIX)
     }
 
     @Test
@@ -38,7 +37,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_FIVE)
+        Assertions.assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_FIVE)
     }
 
     @Test
@@ -48,8 +47,9 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_FOUR)
+        Assertions.assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_FOUR)
     }
+
     @Test
     fun `정답과 비교해서 세 개가 다르다면 MATCH_THREE 를 반환한다`() {
         // given
@@ -57,8 +57,9 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_THREE)
+        Assertions.assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.MATCH_THREE)
     }
+
     @Test
     fun `정답과 비교해서 세 개 초과해 다르다면 DIDNT_PRICE 를 반환한다`() {
         // given
@@ -66,7 +67,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
 
         // when & then
-        assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.DIDNT_PRICE)
+        Assertions.assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.DIDNT_PRICE)
     }
 
     @Test
@@ -74,7 +75,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
         val bonusLotto = 5
 
-        assertTrue(lotto.containBonusNumber(bonusLotto))
+        Assertions.assertTrue(lotto.containBonusNumber(bonusLotto))
     }
 
     @Test
@@ -82,7 +83,7 @@ class LottoTest {
         val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
         val bonusLotto = 7
 
-        assertTrue(!lotto.containBonusNumber(bonusLotto))
+        Assertions.assertTrue(!lotto.containBonusNumber(bonusLotto))
     }
 
 
