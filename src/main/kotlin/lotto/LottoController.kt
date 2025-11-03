@@ -75,18 +75,18 @@ class LottoController(
     }
 
     private fun convertResult(results: List<WinningGrades>): List<Int> {
-        val convertedResult = mutableListOf(0, 0, 0, 0, 0)
-        for (result in results) {
-            when (result) {
-                WinningGrades.FIRST_GRADE -> convertedResult[0]++
-                WinningGrades.SECOND_GRADE -> convertedResult[1]++
-                WinningGrades.THIRD_GRADE -> convertedResult[2]++
-                WinningGrades.FOURTH_GRADE -> convertedResult[3]++
-                WinningGrades.FIVE_GRADE -> convertedResult[4]++
-                WinningGrades.DIDNT_GRADE -> continue
-            }
-        }
-        return convertedResult
+        val countsWinningGrades = results
+            .filter { it != WinningGrades.DIDNT_GRADE }
+            .groupingBy { it }
+            .eachCount()
+
+        return listOf(
+            countsWinningGrades[WinningGrades.FIRST_GRADE] ?: 0,
+            countsWinningGrades[WinningGrades.SECOND_GRADE] ?: 0,
+            countsWinningGrades[WinningGrades.THIRD_GRADE] ?: 0,
+            countsWinningGrades[WinningGrades.FOURTH_GRADE] ?: 0,
+            countsWinningGrades[WinningGrades.FIVE_GRADE] ?: 0,
+        )
     }
 
     private fun generateLotto(lottoCount: Int) {
