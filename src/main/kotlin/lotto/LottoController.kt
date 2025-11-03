@@ -24,8 +24,8 @@ class LottoController(
 
     fun run() {
         inputPurchasedMoney()
-        val lottoCounter = Calculator().calculatePurchasedLotto(purchaseMoney)
-        generateLotto(lottoCounter)
+        val purchasedLottos = Calculator().calculatePurchasedLotto(purchaseMoney)
+        generateLotto(purchasedLottos)
         inputWinningNumbers()
         inputBonusNumber()
         val result = LottoResultChecker(lottos, winningNumbers, bonusNumber).checkResult()
