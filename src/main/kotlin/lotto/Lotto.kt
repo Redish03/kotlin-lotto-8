@@ -21,5 +21,7 @@ class Lotto(private val numbers: List<Int>) {
         return winningGrade
     }
 
+    fun containBonusNumber(bonusNumber: Int): Boolean = numbers.contains(bonusNumber)
+
     private fun compareWithWinningNumbers(winningNumbers: List<Int>): Int = (winningNumbers + numbers).toSet().size
 }
