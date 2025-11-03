@@ -23,7 +23,7 @@ class LottoResultChecker(private val lottos: List<Lotto>, private val winningNum
             MatchNumbers.DIDNT_PRICE -> WinningGrades.DIDNT_GRADE
         }
 
-    private fun checkBonusNumber(lotto: Lotto, bonusNumber: Int): WinningGrades {
+    fun checkBonusNumber(lotto: Lotto, bonusNumber: Int): WinningGrades {
         if(lotto.containBonusNumber(bonusNumber)) return WinningGrades.SECOND_GRADE
         return WinningGrades.THIRD_GRADE
     }
