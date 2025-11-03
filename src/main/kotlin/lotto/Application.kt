@@ -1,5 +1,9 @@
 package lotto
 
+import lotto.domain.numbergenerator.RandomNumberGenerator
+import lotto.view.InputView
+import lotto.view.OutputView
+
 fun main() {
-    // TODO: 프로그램 구현
+    LottoController(InputView, OutputView(), RandomNumberGenerator()).run()
 }

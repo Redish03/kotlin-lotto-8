@@ -11,7 +11,7 @@ class Lotto(private val numbers: List<Int>) {
     fun checkWinning(winningNumbers: List<Int>): MatchNumbers {
         val matchNumbers = compareWithWinningNumbers(winningNumbers)
 
-        val winningGrade = when(matchNumbers) {
+        val winningGrade = when (matchNumbers) {
             6 -> MatchNumbers.MATCH_SIX
             7 -> MatchNumbers.MATCH_FIVE
             8 -> MatchNumbers.MATCH_FOUR
