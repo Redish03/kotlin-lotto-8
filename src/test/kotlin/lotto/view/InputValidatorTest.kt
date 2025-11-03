@@ -1,6 +1,5 @@
-package lotto
+package lotto.view
 
-import lotto.view.InputValidator
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
@@ -8,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.MethodSource
-import org.junit.jupiter.params.provider.NullAndEmptySource
 import java.util.stream.Stream
 
 class InputValidatorTest {
@@ -58,7 +56,6 @@ class InputValidatorTest {
     }
 
     // 로또 정답 번호 값 테스트
-
 
     @ParameterizedTest
     @MethodSource("generateWrongNumberLottoNumbers")

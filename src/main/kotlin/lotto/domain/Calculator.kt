@@ -16,8 +16,8 @@ class Calculator {
                 WinningGrades.DIDNT_GRADE -> DIDNT_GRADED_MONEY
             }
         }
-        val rate = revenue * 100 / purchasedMoney
-        return round(rate * 10) / 10
+        val rate = revenue * CONVERT_PERCENTAGE_HUNDRED / purchasedMoney
+        return round(rate * MAKE_SINGLE_DIGIT_DECIMAL) / MAKE_SINGLE_DIGIT_DECIMAL
     }
 
     companion object {
@@ -28,5 +28,7 @@ class Calculator {
         private const val FOURTH_GRADE_MONEY = 50000
         private const val FIFTH_GRADE_MONEY = 5000
         private const val DIDNT_GRADED_MONEY = 0
+        private const val CONVERT_PERCENTAGE_HUNDRED = 100
+        private const val MAKE_SINGLE_DIGIT_DECIMAL = 10
     }
 }
