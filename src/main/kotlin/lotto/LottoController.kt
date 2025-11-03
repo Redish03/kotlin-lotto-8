@@ -1,5 +1,6 @@
 package lotto
 
+import lotto.domain.Parser
 import lotto.view.InputValidator
 import lotto.view.InputView
 
@@ -9,8 +10,8 @@ class LottoController(private val inputView: InputView) {
         val purchaseMoney = inputView.inputPurchaseMoney()
         inputValidator.validatePurchaseMoney(purchaseMoney)
         val winningNumbers = inputView.inputWinNumber()
-        // TODO: 문자열 파싱
-        inputValidator.validateWinningNumbers(listOf()) // TODO: winningNumber 전달
+        val parsedWinningNumbers = Parser().parse(winningNumbers)
+        inputValidator.validateWinningNumbers(parsedWinningNumbers)
         val bonusNumber = inputView.inputBonusNumber()
         inputValidator.validateBonusNumber(bonusNumber)
     }
