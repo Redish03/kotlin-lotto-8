@@ -1,5 +1,6 @@
 package lotto
 
+import lotto.domain.Lotto
 import lotto.domain.LottoResultChecker
 import lotto.domain.WinningGrades
 import org.junit.jupiter.api.Assertions.assertEquals

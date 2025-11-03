@@ -1,6 +1,6 @@
 package lotto.domain
 
-import lotto.Lotto
+import lotto.domain.Lotto
 
 class LottoResultChecker(private val lottos: List<Lotto>, private val winningNumbers: List<Int>, val bonusNumber: Int) {
     fun checkResult(): List<WinningGrades> {
@@ -24,7 +24,7 @@ class LottoResultChecker(private val lottos: List<Lotto>, private val winningNum
         }
 
     fun checkBonusNumber(lotto: Lotto, bonusNumber: Int): WinningGrades {
-        if(lotto.containBonusNumber(bonusNumber)) return WinningGrades.SECOND_GRADE
+        if (lotto.containBonusNumber(bonusNumber)) return WinningGrades.SECOND_GRADE
         return WinningGrades.THIRD_GRADE
     }
 }
