@@ -1,6 +1,6 @@
 package lotto
 
-import lotto.domain.WinningGrade
+import lotto.domain.MatchNumbers
 
 class Lotto(private val numbers: List<Int>) {
     init {
@@ -8,15 +8,15 @@ class Lotto(private val numbers: List<Int>) {
         require(numbers.toSet().size == 6) { "[ERROR] 중복되는 수가 있으면 안됩니다." }
     }
 
-    fun checkWinning(winningNumbers: List<Int>): WinningGrade {
+    fun checkWinning(winningNumbers: List<Int>): MatchNumbers {
         val matchNumbers = compareWithWinningNumbers(winningNumbers)
 
         val winningGrade = when(matchNumbers) {
-            6 -> WinningGrade.MATCH_SIX
-            7 -> WinningGrade.MATCH_FIVE
-            8 -> WinningGrade.MATCH_FOUR
-            9 -> WinningGrade.MATCH_THREE
-            else -> WinningGrade.DIDNT_PRICE
+            6 -> MatchNumbers.MATCH_SIX
+            7 -> MatchNumbers.MATCH_FIVE
+            8 -> MatchNumbers.MATCH_FOUR
+            9 -> MatchNumbers.MATCH_THREE
+            else -> MatchNumbers.DIDNT_PRICE
         }
         return winningGrade
     }

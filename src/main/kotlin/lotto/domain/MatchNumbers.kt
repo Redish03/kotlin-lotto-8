@@ -1,6 +1,6 @@
 package lotto.domain
 
-enum class WinningGrade {
+enum class MatchNumbers {
     MATCH_SIX,
     MATCH_FIVE,
     MATCH_FOUR,
