@@ -20,7 +20,7 @@ class InputValidator {
     fun validateBonusNumber(bonusNumber: String) {
         require(bonusNumber.isNotBlank()) { "[ERROR] 빈칸을 입력할 수 없습니다." }
         require(bonusNumber.toIntOrNull() != null) { "[ERROR] 정수를 입력하셔야 합니다." }
-        require(bonusNumber.toInt() in MIN_LOTTO_NUMBER .. MAX_LOTTO_NUMBER) { "[ERROR] 1~45 사이의 정수를 입력하셔야 합니다." }
+        require(bonusNumber.toInt() in MIN_LOTTO_NUMBER..MAX_LOTTO_NUMBER) { "[ERROR] 1~45 사이의 정수를 입력하셔야 합니다." }
     }
 
     private fun checkFallApartWithLottoPrice(money: Int): Boolean = money % ONE_LOTTO_MONEY == 0
