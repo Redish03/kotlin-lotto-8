@@ -62,7 +62,7 @@ class LottoController(
 
     private fun inputBonusNumber() {
         outputView.printInputBonusNumbersGuide()
-        while(true) {
+        while (true) {
             try {
                 val inputBonusNumber = inputView.inputBonusNumber()
                 inputValidator.validateBonusNumber(inputBonusNumber)
