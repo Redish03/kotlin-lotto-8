@@ -68,5 +68,23 @@ class LottoTest {
         // when & then
         assertTrue(lotto.checkWinning(answerLotto) == MatchNumbers.DIDNT_PRICE)
     }
+
+    @Test
+    fun `보너스 번호가 포함되어 있다면 True 를 반환한다`() {
+        val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
+        val bonusLotto = 5
+
+        assertTrue(lotto.containBonusNumber(bonusLotto))
+    }
+
+    @Test
+    fun `보너스 번호가 포함되어 있지 않다면 True 를 반환한다`() {
+        val lotto = Lotto(listOf(1, 2, 3, 4, 5, 6))
+        val bonusLotto = 7
+
+        assertTrue(!lotto.containBonusNumber(bonusLotto))
+    }
+
+
     // TODO: 추가 기능 구현에 따른 테스트 코드 작성
 }
