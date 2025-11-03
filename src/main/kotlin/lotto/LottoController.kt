@@ -3,6 +3,7 @@ package lotto
 import lotto.domain.Calculator
 import lotto.domain.LottoResultChecker
 import lotto.domain.Parser
+import lotto.domain.WinningGrades
 import lotto.domain.numbergenerator.NumberGenerator
 import lotto.view.InputValidator
 import lotto.view.InputView
@@ -23,7 +24,13 @@ class LottoController(
         generateLotto(lottoCount)
         val winningNumbers = inputWinningNumbers()
         val bonusNumber = inputBonusNumber()
-        LottoResultChecker(lottos, winningNumbers, bonusNumber).checkResult()
+        val result = LottoResultChecker(lottos, winningNumbers, bonusNumber).checkResult()
+        printResult(result, Calculator().calculateRevenueRate(purchaseMoney, result))
+    }
+
+    private fun printResult(result: List<WinningGrades>, rate: Double) {
+        outputView.printWinningStatistics(convertResult(result))
+        outputView.printRevenueRate(rate)
     }
 
     private fun generateLotto(lottoCount: Int) {
@@ -55,5 +62,20 @@ class LottoController(
         val bonusNumber = inputView.inputBonusNumber()
         inputValidator.validateBonusNumber(bonusNumber)
         return bonusNumber.toInt()
+    }
+
+    private fun convertResult(results: List<WinningGrades>): List<Int> {
+        val convertedResult = mutableListOf(0, 0, 0, 0, 0)
+        for(result in results) {
+            when (result) {
+                WinningGrades.FIRST_GRADE -> convertedResult[0]++
+                WinningGrades.SECOND_GRADE -> convertedResult[1]++
+                WinningGrades.THIRD_GRADE -> convertedResult[2]++
+                WinningGrades.FOURTH_GRADE -> convertedResult[3]++
+                WinningGrades.FIVE_GRADE -> convertedResult[4]++
+                WinningGrades.DIDNT_GRADE -> continue
+            }
+        }
+        return convertedResult
     }
 }
