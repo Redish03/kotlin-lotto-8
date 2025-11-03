@@ -1,6 +1,7 @@
 package lotto
 
 import lotto.domain.Calculator
+import lotto.domain.LottoResultChecker
 import lotto.domain.Parser
 import lotto.domain.numbergenerator.NumberGenerator
 import lotto.view.InputValidator
@@ -22,6 +23,7 @@ class LottoController(
         generateLotto(lottoCount)
         val winningNumbers = inputWinningNumbers()
         val bonusNumber = inputBonusNumber()
+        LottoResultChecker(lottos, winningNumbers, bonusNumber).checkResult()
     }
 
     private fun generateLotto(lottoCount: Int) {
